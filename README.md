@@ -43,3 +43,7 @@ con la informacion
 
 ![image](https://user-images.githubusercontent.com/111831040/186541534-b5690a3c-f766-493f-96b9-42697203ee32.png)
 
+## Se implementa Docker para maenejo de BD
+![image](https://user-images.githubusercontent.com/111831040/186541723-0900ee08-4d2c-4b05-b816-9ea08d3d45e4.png)
+
+
