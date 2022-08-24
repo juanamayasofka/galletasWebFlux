@@ -1,47 +1,45 @@
-# Proyecto Base Implementando Clean Architecture
 
-## Antes de Iniciar
+# Galletas Webflux - Zona de talentos
 
-Empezaremos por explicar los diferentes componentes del proyectos y partiremos de los componentes externos, continuando con los componentes core de negocio (dominio) y por último el inicio y configuración de la aplicación.
+Se crea el proyecto con el arquetipo de bancolombia, se logra crear los entryPoints, 
+se crea el modelo el caso de uso y se almacena en mongo, implementando Docker.
 
-Lee el artículo [Clean Architecture — Aislando los detalles](https://medium.com/bancolombia-tech/clean-architecture-aislando-los-detalles-4f9530f35d7a)
+ 
 
-# Arquitectura
+## Authors
 
-![Clean Architecture](https://miro.medium.com/max/1400/1*ZdlHz8B0-qu9Y-QO3AXR_w.png)
+- [@Juan.amaya](https://github.com/juanamayasofka/galletasWebFlux)
 
-## Domain
 
-Es el módulo más interno de la arquitectura, pertenece a la capa del dominio y encapsula la lógica y reglas del negocio mediante modelos y entidades del dominio.
+## Documentation
 
-## Usecases
+Se plantea una solución, construyendo una API con spring boot, con el arquetipo de bancolombia
+se hacen diferentes entryPoints para afianzar conceptos 
 
-Este módulo gradle perteneciente a la capa del dominio, implementa los casos de uso del sistema, define lógica de aplicación y reacciona a las invocaciones desde el módulo de entry points, orquestando los flujos hacia el módulo de entities.
 
-## Infrastructure
+### Se crean los endPoints:
 
-### Helpers
+se crean entryPoints para crear galletas
 
-En el apartado de helpers tendremos utilidades generales para los Driven Adapters y Entry Points.
+![image](https://user-images.githubusercontent.com/111831040/186541332-edb91512-e327-4ed7-8e89-7cd4f98f93d4.png)
 
-Estas utilidades no están arraigadas a objetos concretos, se realiza el uso de generics para modelar comportamientos
-genéricos de los diferentes objetos de persistencia que puedan existir, este tipo de implementaciones se realizan
-basadas en el patrón de diseño [Unit of Work y Repository](https://medium.com/@krzychukosobudzki/repository-design-pattern-bc490b256006)
 
-Estas clases no puede existir solas y debe heredarse su compartimiento en los **Driven Adapters**
+## se crean entryPoints para consultar todas las galletas
+![image](https://user-images.githubusercontent.com/111831040/186541373-d4c3c078-6463-487c-98ad-3e6362cc2bd1.png)
 
-### Driven Adapters
 
-Los driven adapter representan implementaciones externas a nuestro sistema, como lo son conexiones a servicios rest,
-soap, bases de datos, lectura de archivos planos, y en concreto cualquier origen y fuente de datos con la que debamos
-interactuar.
+## se crea entryPoints para consultar galletas por id
 
-### Entry Points
+![image](https://user-images.githubusercontent.com/111831040/186541426-a74aad84-4f74-46c2-a4b9-eb4eeb6bb87c.png)
 
-Los entry points representan los puntos de entrada de la aplicación o el inicio de los flujos de negocio.
 
-## Application
+## se implemente manejo de errores en caso de no encontrar la galletas
 
-Este módulo es el más externo de la arquitectura, es el encargado de ensamblar los distintos módulos, resolver las dependencias y crear los beans de los casos de use (UseCases) de forma automática, inyectando en éstos instancias concretas de las dependencias declaradas. Además inicia la aplicación (es el único módulo del proyecto donde encontraremos la función “public static void main(String[] args)”.
+![image](https://user-images.githubusercontent.com/111831040/186541469-7266fb04-85c8-4498-a246-f8cfb63fe658.png)
 
-**Los beans de los casos de uso se disponibilizan automaticamente gracias a un '@ComponentScan' ubicado en esta capa.**
+
+## se crea entryPoints para consultar las galletas y devolver un Mono de string
+con la informacion
+
+![image](https://user-images.githubusercontent.com/111831040/186541534-b5690a3c-f766-493f-96b9-42697203ee32.png)
+
